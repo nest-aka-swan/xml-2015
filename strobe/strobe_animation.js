@@ -22,13 +22,13 @@ $(function() {
     spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
   });
 
-  $("#reduce_speed").click(function(e) {
-    reduceSpeed();
-    spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
-  });
-  $("#increase_speed").click(function(e) {
-    increaseSpeed();
-    spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
+  $( "#speed_slider" ).slider({
+    step: deltaSpeed,
+    max: 2,
+    min: 0.01,
+    change: function(event, ui) {
+      spinner.style.animation = $( "#speed_slider" ).slider("value") + "s rotatecircle infinite linear";
+    }
   });
 
   function increaseSpeed() {
