@@ -1,7 +1,8 @@
 $(function() {
   var spinnerSpeed = 1; // seconds for one 360 rotation
   var deltaSpeed   = 0.01; // delta for reduce/increase
-  var spinner = document.getElementById("spinner");
+  var refreshRate  = 60;
+  var spinner      = document.getElementById("spinner");
 
   $(document).keydown(function(e) {
     switch(e.keyCode) {
@@ -21,6 +22,15 @@ $(function() {
     spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
   });
 
+  $("#reduce_speed").click(function(e) {
+    reduceSpeed();
+    spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
+  });
+  $("#increase_speed").click(function(e) {
+    increaseSpeed();
+    spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
+  });
+
   function increaseSpeed() {
       if(spinnerSpeed - deltaSpeed > 0) spinnerSpeed -= deltaSpeed;
   }
@@ -30,6 +40,7 @@ $(function() {
   }
 
   function stopSpinner() {
+    //spinnerSpeed = 1 / refreshRate;
     spinnerSpeed = 0.0166829; // must be 1/60
   }
 });
