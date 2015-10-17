@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>...</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+    <script type="text/javascript">
+      $(function() {
+        $("#red").draggable();
+        $("#green").draggable();
+
+
+        var r = Math.sqrt((255*255 + 0*0) / 2);
+        var g = Math.sqrt((0*0 + 255*255) / 2);
+        var b = Math.sqrt((0*0 + 0*0) / 2);
+
+        var rgb_str = "rgb("+Math.floor(r)+","+Math.floor(g)+","+Math.floor(b)+")"
+        $("#mix_ph").css({
+          'background-color': rgb_str
+        });
+      });
+    </script>
+
+    <style>
+      #red {
+        background-color: rgba(255, 0, 0, 0.5);
+      }
+      #green {
+        background-color: rgba(0, 255, 0, 0.5);
+        left: 100px;
+        top: -100px;
+      }
+      .square {
+        width: 200px;
+        height: 200px;
+      }
+      #red_ph {
+        background-color: rgb(255, 0, 0);
+      }
+      #green_ph {
+        background-color: rgb(0, 255, 0);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="red" class="square"></div>
+    <div id="green" class="square"></div>
+    <div id="placeholder">
+      <div id="red_ph" class="square"></div>
+      <div id="mix_ph" class="square"></div>
+      <div id="green_ph" class="square"></div>
+    </div>
+  </body>
+</html>

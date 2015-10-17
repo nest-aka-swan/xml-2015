@@ -20,6 +20,7 @@ $(function() {
     }
 
     spinner.style.animation = spinnerSpeed + "s rotatecircle infinite linear";
+    $("#speed").text(Math.floor(360 / spinnerSpeed) + " градусов/сек");
   });
 
   $( "#speed_slider" ).slider({
@@ -28,6 +29,7 @@ $(function() {
     min: 0.01,
     change: function(event, ui) {
       spinner.style.animation = $( "#speed_slider" ).slider("value") + "s rotatecircle infinite linear";
+      $("#speed").text(Math.floor(360 / $( "#speed_slider" ).slider("value")) + " градусов/сек");
     }
   });
 
